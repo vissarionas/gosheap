@@ -1,11 +1,11 @@
-const express = require('express');
+import * as express from 'express';
 
-const { homeCtrl } = require('./built/homeCtrl');
+import home from './controllers/home';
 
 const app = express();
 const port = 3000;
 
-app.get('/', homeCtrl);
+app.get('/', home);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
