@@ -1,9 +1,12 @@
-import * as express from 'express';
+const fakeAsync = () => new Promise((resolve) => {
+  setTimeout(() => resolve('Done'), 1000);
+});
 
-const createEmail = (name: String) => `${name}@gmail.com`;
-
-const home = (req: express.Request, res: express.Response) => {
-  res.status(200).send(createEmail('vissarion'));
+module.exports = async (req: any, res: any, next: any) => {
+  try {
+    const result = await fakeAsync();
+    res.status(200).send(result);
+  } catch (error) {
+    next(error);
+  }
 };
-
-export default home;

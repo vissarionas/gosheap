@@ -1,6 +1,6 @@
-import * as express from 'express';
+const express = require('express');
 
-import home from './controllers/home';
+const home = require('./controllers/home.ts');
 
 const app = express();
 const port = 3000;
