@@ -1,6 +1,6 @@
 const express = require('express');
 
-const home = require('./controllers/home.ts');
+const home = require('./controllers/home');
 
 const app = express();
 const port = 3000;
