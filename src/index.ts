@@ -1,5 +1,6 @@
 const express = require('express');
 
+const errorHandler = require('./middlewares/errorHandler');
 const home = require('./controllers/home');
 
 const app = express();
@@ -10,3 +11,5 @@ app.get('/', home);
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+app.use(errorHandler);

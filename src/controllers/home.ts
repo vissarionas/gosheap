@@ -1,5 +1,6 @@
-const fakeAsync = () => new Promise((resolve) => {
+const fakeAsync = () => new Promise((resolve, _reject) => {
   setTimeout(() => resolve('Done'), 1000);
+  // setTimeout(() => reject(new Error('Something went wrong')), 1000);
 });
 
 module.exports = async (req: any, res: any, next: any) => {
