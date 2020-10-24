@@ -1,15 +1,33 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+
+const router = express.Router();
+
+const port = process.env.PORT;
+
+require('./mongodb/init');
 
 const errorHandler = require('./middlewares/errorHandler');
-const home = require('./controllers/home');
+
+const health = require('./controllers/health');
+
+const getUsers = require('./controllers/users/getUsers');
+const createUser = require('./controllers/users/createUser');
+const deleteUser = require('./controllers/users/deleteUser');
 
 const app = express();
-const port = 3000;
 
-app.get('/', home);
+process.once('SIGUSR2', () => process.kill(process.pid));
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+app.use(bodyParser.json());
 
+router.get('/health', health);
+
+router.get('/users', getUsers);
+router.post('/users/create', createUser);
+router.delete('/users/:id', deleteUser);
+
+app.use(router);
 app.use(errorHandler);
+
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
