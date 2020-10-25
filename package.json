@@ -2,17 +2,19 @@
   "name": "gosheap",
   "version": "1.0.0",
   "description": "gosheap-backend",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "start": "PORT=3000 node dist/index.js",
+    "start": "PORT=3000 node dist/server.js",
     "start:dev": "PORT=3000 node ./node_modules/nodemon/bin/nodemon",
-    "test": "node ./node_modules/mocha/bin/mocha && exit 1"
+    "test": "./node_modules/mocha/bin/mocha --require ts-node/register --recursive 'test/**/*.test.ts' --exit"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/mocha": "^8.0.3",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "express": "^4.17.1",
     "mocha": "^8.1.3",
     "mongoose": "^5.10.9"
