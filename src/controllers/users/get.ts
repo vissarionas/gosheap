@@ -2,7 +2,7 @@ export {};
 
 const User = require('../../mongodb/models/User');
 
-const getUsers = async (req: any, res: any, next: any) => {
+const get = async (req: any, res: any, next: any) => {
   try {
     const users = await User.find();
     res.send(users);
@@ -11,4 +11,4 @@ const getUsers = async (req: any, res: any, next: any) => {
   }
 };
 
-module.exports = getUsers;
+module.exports = get;

@@ -2,6 +2,9 @@
 
 Here goes some instructions
 
+## Requirements
+Mongodb 4.4
+
 ## How to run
 In order to start the application in a production mode you have to first compile typescript to javascript.
 > npx tsc

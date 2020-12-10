@@ -4,12 +4,12 @@ const express = require('express');
 
 const users = express.Router();
 
-const getUsers = require('../controllers/users/getUsers');
-const createUser = require('../controllers/users/createUser');
-const deleteUser = require('../controllers/users/deleteUser');
+const get = require('../controllers/users/get');
+const create = require('../controllers/users/create');
+const remove = require('../controllers/users/remove');
 
-users.get('/users', getUsers);
-users.post('/users/create', createUser);
-users.delete('/users/:id', deleteUser);
+users.get('/users', get);
+users.post('/users/create', create);
+users.delete('/users/:id', remove);
 
 module.exports = users;

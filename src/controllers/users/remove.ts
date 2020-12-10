@@ -2,7 +2,7 @@ export {};
 
 const User = require('../../mongodb/models/User');
 
-const deleteUser = async (req: any, res: any, next: any) => {
+const remove = async (req: any, res: any, next: any) => {
   try {
     const { id } = req.params;
     const deletedUser = await User.findByIdAndDelete(id);
@@ -12,4 +12,4 @@ const deleteUser = async (req: any, res: any, next: any) => {
   }
 };
 
-module.exports = deleteUser;
+module.exports = remove;
